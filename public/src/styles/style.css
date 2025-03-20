@@ -1,0 +1,336 @@
+/*============= GLOBAL ================*/
+
+:root {
+    --text-color: #000;
+    --app-background: #fff;
+    --header-background: #1DA6FB;
+    --container-one-background: #F4F4F4;
+    --thead-background: #E9E9E9;
+    --tbody-background: #F8F8F8;
+    --modal-background: #F4F4F4;
+    --field-modal-background: #E5E5E5;
+    --button-blue-background: #1DA6FB;
+    --button-red-background: #FB1D1D;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 93.75%; 
+}
+
+body {
+    background: var(--app-background);
+    font-family: 'Poppins', sans-serif;
+    overflow: auto;
+}
+
+#container-main {
+    width: min(90vw, 800px);
+    margin: auto;
+}
+
+/*============== TEXTS ================*/
+.text-total {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.result-total {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.title-form {
+    text-align: center;
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+/*============== BUTTONS ==============*/
+
+.button.add, .button.form-add {
+    background: var(--button-blue-background);
+    border: none;
+    color: #f4f4f4;
+    font-size: 1rem;
+    padding: 1rem 1.5rem 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.button.add:hover {
+    margin-bottom: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.button.form-add:hover {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.button.cancel {
+    border: solid 2px var(--button-red-background);
+    color: var(--button-red-background);
+    font-size: 1rem;
+    padding: 1rem 1.5rem 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.button.cancel:hover {
+    background: var(--button-red-background);
+    color: #f4f4f4;
+}
+
+.button.confirm-delete {
+    background: var(--button-red-background);
+    border: none;
+    color: #f4f4f4;
+    font-size: 1rem;
+    padding: 1rem 1.5rem 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.button.confirm-delete:hover {
+    box-shadow: rgba(255, 0, 0, 0.801) 0px 5px 15px;
+}
+
+/*============== HEADER ===============*/
+
+#header {
+    background: var(--header-background);
+    padding: 1rem 0 5rem; /* Superior, horizontal e inferior */
+}
+
+.logo {
+    text-align: center;
+    padding: 2rem;
+    font-size: 3rem;
+    color: #fff;
+    font-weight: 800;
+}
+
+/*============= SECTION ================*/
+
+#container-one {
+    background: var(--container-one-background);
+    padding: 3rem;
+    margin-top: -5rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.total {
+    text-align: center;
+}
+
+/*============= TABLE ==================*/
+
+#container-two {
+    overflow: auto;
+}
+
+#data-table {
+    width: 100%;
+    border-spacing: 0rem 0.5rem;
+    margin-top: 1.5rem;
+    overflow: auto;
+}
+
+table thead tr th:first-child, 
+table tbody tr td:first-child{
+    border-radius: 0.25rem 0 0 0.25rem;
+}
+table thead tr th:last-child, 
+table tbody tr td:last-child{
+    border-radius: 0 0.25rem 0.25rem 0;
+}
+
+table thead th {
+    background: var(--thead-background);
+    padding: 1rem 2rem;
+    font-weight: 500;
+    text-align: center;
+    font-size: 1rem;
+}
+
+table tbody td{
+    background: var(--tbody-background);
+    padding: 1rem 2rem;
+    font-weight: 400;
+    text-align: center;
+    font-size: 1rem;
+}
+
+table tbody tr:hover, table thead:hover{
+    opacity: 90%;
+    transition: 0.4s;
+}
+
+.icon-delete {
+    width: 2rem;
+    cursor: pointer;
+}
+
+/*=========== MODAL ======================*/
+
+.modal-overlay {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1;
+    transition: 0.4s;
+}
+
+.modal-overlay.confirmAdd.active {
+    transition-delay: 0.3s;
+}
+
+.modal-overlay.add.active, .modal-overlay.confirmAdd.active, .modal-overlay.confirmDelete.active {
+    opacity: 100;
+    visibility: visible;
+}
+
+
+.modal {
+    background-color: var(--modal-background);
+    border-radius: 5px;
+    padding: 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+/*=========== FORM =======================*/
+#form {
+    padding: 1rem 3rem 3rem;
+    width: 100%;
+}
+
+form {
+    width: 40vw;
+}
+
+.input-group, .button-group {
+    margin-top: 0.8rem;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+}
+.button-group input {
+    margin: 0 1rem;
+    width: 12rem;
+}
+
+.input-group input {
+    background: var(--field-modal-background);
+    border-radius: 5px;
+    border: none;
+    padding: 1rem;
+    width: 70%;
+    transition: 0.4s;
+    outline: none;
+}
+
+.input-group input:focus {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.container-animation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.animation {
+    background: transparent;
+    width: 10rem;
+    height: 10rem;
+}
+
+/*=========== RESPONSIVO =================*/
+
+@media (max-width: 800px) {
+    
+    /*============= GLOBAL ================*/
+
+    html{
+        font-size: 87.5%;
+    }
+    body {
+        height: 200vh;
+    }
+        
+    /*============= SECTION ================*/
+
+    #container-one {
+        background: var(--container-one-background);
+        padding: 3rem;
+        margin-top: -5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        box-shadow: 0px 4px rgba(0, 0, 0, 0.25);
+    }
+    .total {
+        margin-bottom: 1.8rem;
+    }
+
+        
+    /*=========== FORM =======================*/
+    #form {
+        padding: 5rem 3rem 10rem;
+        width: 100%;
+    }
+
+    form {
+        width: 60vw;
+    }
+
+    .input-group, .button-group {
+        margin-top: 0.8rem;
+        padding: 0.5rem;
+        display: flex;
+        justify-content: center;
+    }
+    .button-group input {
+        margin: 0 1rem;
+        width: 12rem;
+    }
+
+    .input-group input {
+        background: var(--field-modal-background);
+        border-radius: 5px;
+        border: none;
+        padding: 1rem;
+        width: 100%;
+    }
+}
+@media (min-height: 1000px) {
+    
+    /*=========== FORM =======================*/
+    #form {
+        padding: 5rem 3rem 50rem;
+        width: 100%;
+    }
+}
